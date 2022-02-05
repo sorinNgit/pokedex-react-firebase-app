@@ -6,7 +6,7 @@ import Profile from './components/Profile/Profile';
 import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
 import PasswordReset from './components/PasswordReset/PasswordReset';
-
+import Footer from './components/Footer/Footer';
 
 import { auth, generateUserDocument } from './Firebase/firebase';
 import { setUser, selectUser } from './Firebase/firebaseSlice';

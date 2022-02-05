@@ -4,7 +4,7 @@ import 'gestalt/dist/gestalt.css';
 import { auth } from '../../Firebase/firebase';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUser, setUser } from '../../Firebase/firebaseSlice';
-
+import Footer from "../Footer/Footer"
 const ProfilePage = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
@@ -16,7 +16,7 @@ const ProfilePage = () => {
         <Box padding={3}>
           <Heading size="md">Profile</Heading>
         </Box>
-        <Box maxWidth={236} padding={2} column={12}>
+        <Box maxWidth={336} padding={2} column={12}>
           <Card image={<Avatar name="James Jones" src={photoURL} />}>
             <Text align="center" weight="bold">
               <Box paddingX={3} paddingY={2}>
@@ -39,8 +39,10 @@ const ProfilePage = () => {
             />
           </Card>
         </Box>
+        <Footer />
       </Container>
     </Box>
+
   );
 };
 export default ProfilePage;
