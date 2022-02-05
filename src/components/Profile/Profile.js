@@ -5,13 +5,15 @@ import { auth } from '../../Firebase/firebase';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUser, setUser } from '../../Firebase/firebaseSlice';
 import Footer from "../Footer/Footer"
+import Header from "../Header/Header"
 const ProfilePage = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const { displayName, photoURL, email } = user;
 
   return (
-    <Box padding={3}>
+    <Box padding={0}>
+      <Header />
       <Container>
         <Box padding={3}>
           <Heading size="md">Profile</Heading>

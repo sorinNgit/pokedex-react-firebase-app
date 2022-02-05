@@ -11,6 +11,8 @@ import {
   Heading,
 } from 'gestalt';
 import 'gestalt/dist/gestalt.css';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -26,7 +28,8 @@ const SignIn = () => {
 
   return (
     <div>
-      <Box padding={3}>
+      <Box padding={0}>
+      <Header />
         <Container>
           <Box padding={3}>
             {error !== null && <Toast text={error} />}
@@ -86,6 +89,7 @@ const SignIn = () => {
             </Link>
           </Box>
         </Container>
+        <Footer />
       </Box>
     </div>
   );

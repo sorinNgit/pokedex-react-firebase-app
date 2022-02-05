@@ -5,7 +5,7 @@ import React from 'react';
 export default () => (
   <footer className="footer">
     <div className="container">
-      <div className="content has-text-centered">
+      <div align = "center">
         <p>
           Made by{' '}
           <strong>Neculae Andrei-Sorin</strong>, grupa <strong>341</strong>.
