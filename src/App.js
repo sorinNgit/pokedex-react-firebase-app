@@ -65,6 +65,7 @@ class App extends Component {
           path="/profile"
           render={props => <Profile currentUser={currentUser} />}
         />
+        <Footer />
       </div>
     )
   }

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { pad } from '../helpers';
 import PokemonDescription from './PokemonDescription';
-import './spinner.css';
 
 class PokemonDetails extends Component {
   constructor(props) {
