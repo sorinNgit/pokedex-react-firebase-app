@@ -13,6 +13,7 @@ import PokemonList from './PokedexPages/Pokedex';
 import PokemonDetails from './PokedexPages/PokemonDetails';
 import Footer from './components/Footer/Footer';
 import jsonData from './pokemonlist';
+import Header from './components/Header/Header';
 
 import { auth, generateUserDocument, database } from './Firebase/firebase';
 import { setUser, selectUser } from './Firebase/firebaseSlice';
@@ -49,6 +50,7 @@ class App extends Component {
     const { allPokemonData, currentUser } = this.state;
     return (
       <div className="app-wrapper">
+        <Header currentUser={currentUser} />
         <Route 
           exact 
           path="/" 
