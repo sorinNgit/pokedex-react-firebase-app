@@ -35,7 +35,7 @@ class App extends Component {
       item.id = id;
     });
     this.setState({
-      allPokemonData: data.slice(0, 251),
+      allPokemonData: data.slice(0, 300),
     });
     auth.onAuthStateChanged(currentUser => {
       this.setState({ currentUser });
