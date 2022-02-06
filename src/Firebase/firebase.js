@@ -8,7 +8,7 @@ const firebaseConfig = {
   storageBucket: "proiect-fe.appspot.com",
   messagingSenderId: "845277639267",
   appId: "1:845277639267:web:84b9eb8c3d2d98b5de3e56",
-  databaseURL: "https://proiect-fe.firebaseio.com"
+  databaseURL: "https://proiect-fe-default-rtdb.europe-west1.firebasedatabase.app"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);

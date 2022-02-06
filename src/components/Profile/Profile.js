@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import auth from '../../Firebase/firebase';
+import {auth} from '../../Firebase/firebase';
 import PropTypes from 'prop-types';
 import './profile.css';
-import PokemonList from '../../pokemonlist';
+import PokemonList from '../../PokedexPages/Pokedex';
 import {withRouter} from 'react-router-dom';
 
 class Profile extends Component {
