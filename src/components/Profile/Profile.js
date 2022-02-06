@@ -1,50 +1,54 @@
-import React from 'react';
-import { Box, Button, Text, Avatar, Card, Container, Heading } from 'gestalt';
-import 'gestalt/dist/gestalt.css';
-import { auth } from '../../Firebase/firebase';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectUser, setUser } from '../../Firebase/firebaseSlice';
-import Footer from "../Footer/Footer"
-import Header from "../Header/Header"
-const ProfilePage = () => {
-  const dispatch = useDispatch();
-  const user = useSelector(selectUser);
-  const { displayName, photoURL, email } = user;
+import React, { Component } from 'react';
+import auth from '../../Firebase/firebase';
+import PropTypes from 'prop-types';
+import './profile.css';
+import PokemonList from '../../pokemonlist';
+import {withRouter} from 'react-router-dom';
 
-  return (
-    <Box padding={0}>
-      <Header />
-      <Container>
-        <Box padding={3}>
-          <Heading size="md">Profile</Heading>
-        </Box>
-        <Box maxWidth={336} padding={2} column={12}>
-          <Card image={<Avatar name="James Jones" src={photoURL} />}>
-            <Text align="center" weight="bold">
-              <Box paddingX={3} paddingY={2}>
-                {displayName}
-              </Box>
-            </Text>
-            <Text align="center">
-              <Box paddingX={3} paddingY={2}>
-                {email}
-              </Box>
-            </Text>
-            <Button
-              onClick={() => {
-                auth.signOut();
-                dispatch(setUser(null));
-              }}
-              accessibilityLabel="Sign out of your account"
-              color="red"
-              text="Sign out"
-            />
-          </Card>
-        </Box>
-        <Footer />
-      </Container>
-    </Box>
+class Profile extends Component {
+  constructor(props) {
+    super(props);
 
-  );
+    this.handleLogout = this.handleLogout.bind(this);
+  }
+
+  handleLogout() {
+    auth.signOut();
+    this.props.history.replace("/allpokemon");
+  }
+
+
+  render() {
+    const { currentUser } = this.props;
+    return (
+      <div className="user-profile">
+        {currentUser && (
+          <div>
+            <div className="current-user card">
+              <div className="current-user__photo">
+                <img src={currentUser.photoURL} alt={currentUser.displayName} />
+              </div>
+              <div className="current-user__identification">
+                <h3>{currentUser.displayName}</h3>
+                <p>{currentUser.email}</p>
+                <button onClick={this.handleLogout}>Sign Out</button>
+              </div>
+            </div>
+            <PokemonList />
+          </div>
+        )}
+      </div>
+    );
+  }
+}
+
+Profile.propTypes = {
+  currentUser: PropTypes.shape({
+    displayName: PropTypes.string,
+    email: PropTypes.string.isRequired,
+    photoURL: PropTypes.string,
+    uid: PropTypes.string.isRequired
+  })
 };
-export default ProfilePage;
+
+export default withRouter(Profile);

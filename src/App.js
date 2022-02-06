@@ -1,13 +1,8 @@
-import React, { useEffect, Component } from 'react';
-import { Router} from '@reach/router';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { Component } from 'react';
 import { Route, withRouter} from 'react-router-dom';
 
 import Profile from './components/Profile/Profile';
-import SignIn from './components/SignIn/SignIn';
-import SignUp from './components/SignUp/SignUp';
-import PasswordReset from './components/PasswordReset/PasswordReset';
-import Pokedex from "./PokedexPages/Pokedex";
+
 import Home from './PokedexPages/Home';
 import PokemonList from './PokedexPages/Pokedex';
 import PokemonDetails from './PokedexPages/PokemonDetails';
@@ -40,7 +35,7 @@ class App extends Component {
       item.id = id;
     });
     this.setState({
-      allPokemonData: data.slice(0, 151),
+      allPokemonData: data.slice(0, 251),
     });
     auth.onAuthStateChanged(currentUser => {
       this.setState({ currentUser });
